@@ -9,7 +9,7 @@ app.post('/user',user_controller.addUser);
 
 app.listen(7000, function(){
     console.log(`App has started to run`);
-    mongoose.connect('')
+    mongoose.connect('mongodb+srv://tahiru:tahiru1234@cluster0.pzdin.mongodb.net/users_db?retryWrites=true&w=majority')
     .then(function(){
      console.log('Success: Connected to you DB');
     })
