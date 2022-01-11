@@ -1,15 +1,19 @@
+const { async } = require('jshint/src/prod-params');
+const Todo= require('../models/User');
+
 async function addUser(req, res){
  try {
     const newUser = await User.create(req.body);
-    res.status(200).json({message: 'User has been created'})
+    res.status(200).json(newUser);
  } catch (error) {
-     res.status(404).json({message: 'Culdn\'t add user'})
+    console.log("Can't add user: ", error.message);
+     res.status(404).json({message: 'Can\'t add user'});
  }
 }
 
 async function getUsers(req, res){
     try {
-        const users = await User.find();
+        const users = await users.find();
         res.status(200).json(users);
     } catch (error) {
         console.log('error fetching users', error.message);
@@ -30,7 +34,7 @@ async function getUsers(req, res){
 // }
 }
 
-module.exports ={
-    addUser,
-    getUsers
+module.exports = {
+  addUser,
+  getUsers,
 }
