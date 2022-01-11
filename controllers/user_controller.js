@@ -1,5 +1,5 @@
 const { async } = require('jshint/src/prod-params');
-const Todo= require('../models/User');
+const User = require('../models/User');
 
 async function addUser(req, res){
  try {
@@ -13,7 +13,7 @@ async function addUser(req, res){
 
 async function getUsers(req, res){
     try {
-        const users = await users.find();
+        const users = await User.find();
         res.status(200).json(users);
     } catch (error) {
         console.log('error fetching users', error.message);
